@@ -18,19 +18,19 @@ const { Sider, Content, Header } = Layout;
 const menuItems = [
   { key: "/dashboard", icon: <HomeOutlined />, label: "홈" },
   {
-    key: "/dashboard/anniversary",
+    key: "/anniversary",
     icon: <HeartOutlined />,
     label: "우리의 기념일",
   },
-  { key: "/dashboard/memories", icon: <PictureOutlined />, label: "추억쌓기" },
+  { key: "/memories", icon: <PictureOutlined />, label: "추억쌓기" },
   {
-    key: "/dashboard/notifications",
+    key: "/notifications",
     icon: <BellOutlined />,
     label: "알림내역",
   },
-  { key: "/dashboard/me", icon: <UserOutlined />, label: "내정보" },
-  { key: "/dashboard/users", icon: <TeamOutlined />, label: "사용자관리" },
-  { key: "/dashboard/codes", icon: <CodeOutlined />, label: "코드관리" },
+  { key: "/me", icon: <UserOutlined />, label: "내정보" },
+  { key: "/users", icon: <TeamOutlined />, label: "사용자관리" },
+  { key: "/codes", icon: <CodeOutlined />, label: "코드관리" },
 ];
 
 export default function DashboardLayout({
