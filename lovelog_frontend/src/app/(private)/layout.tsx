@@ -48,15 +48,28 @@ export default function DashboardLayout({
   }, [pathname]);
 
   return (
-    <Layout className="dashboard-shell">
+    <Layout
+      className="dashboard-shell"
+      style={{
+        minHeight: "100vh",
+        background: "transparent",
+      }}
+    >
       <Sider
         width={220}
         collapsedWidth={76}
         collapsed={!hovered}
         trigger={null}
-        className="dashboard-sider"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        style={{
+          height: "100vh",
+          position: "sticky",
+          top: 0,
+          left: 0,
+          overflow: "hidden",
+        }}
+        className="dashboard-sider"
       >
         <div
           className={`flex h-full flex-col py-3 transition-all duration-300 ${
@@ -67,7 +80,7 @@ export default function DashboardLayout({
           <div
             className={`mb-4 flex rounded-[24px] border border-white/10 bg-white/5 py-3 backdrop-blur-xl transition-all duration-300 ${
               hovered
-                ? "items-center gap-3 px-3 justify-start"
+                ? "items-center justify-start gap-3 px-3"
                 : "items-center justify-center px-0"
             }`}
           >
@@ -77,7 +90,7 @@ export default function DashboardLayout({
 
             <div
               className={`overflow-hidden transition-all duration-300 ${
-                hovered ? "w-[110px] opacity-100 ml-0" : "w-0 opacity-0 ml-0"
+                hovered ? "ml-0 w-[110px] opacity-100" : "ml-0 w-0 opacity-0"
               }`}
             >
               <div className="whitespace-nowrap text-base font-semibold text-white">
@@ -90,21 +103,23 @@ export default function DashboardLayout({
           </div>
 
           {/* 메뉴 */}
-          <Menu
-            mode="inline"
-            theme="dark"
-            selectedKeys={selectedKey}
-            items={menuItems}
-            onClick={({ key }) => router.push(key)}
-            inlineCollapsed={!hovered}
-            className="dashboard-menu flex-1"
-          />
+          <div className="flex-1 overflow-y-auto">
+            <Menu
+              mode="inline"
+              theme="dark"
+              selectedKeys={selectedKey}
+              items={menuItems}
+              onClick={({ key }) => router.push(key)}
+              inlineCollapsed={!hovered}
+              className="dashboard-menu"
+            />
+          </div>
 
           {/* 푸터 프로필 */}
           <div
             className={`mt-4 flex rounded-[24px] border border-white/10 bg-white/5 p-3 backdrop-blur-xl transition-all duration-300 ${
               hovered
-                ? "items-center gap-3 justify-start"
+                ? "items-center justify-start gap-3"
                 : "items-center justify-center px-0"
             }`}
           >
@@ -132,26 +147,49 @@ export default function DashboardLayout({
         </div>
       </Sider>
 
-      <Layout style={{ background: "transparent" }}>
-        <Header className="dashboard-header px-6">
-          <div className="flex items-center justify-between py-5">
-            <div>
-              <h1 className="m-0 text-3xl font-bold text-white">
+      <Layout
+        style={{
+          background: "transparent",
+          minHeight: "100vh",
+        }}
+      >
+        <Header
+          className="dashboard-header px-3 sm:px-4 md:px-6"
+          style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 10,
+            background: "rgba(15, 23, 42, 0.75)",
+            backdropFilter: "blur(12px)",
+            height: "auto",
+            lineHeight: "normal",
+          }}
+        >
+          <div className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="min-w-0">
+              <h1 className="m-0 text-lg font-bold text-white sm:text-xl md:text-2xl break-words">
                 LoveLog Dashboard
               </h1>
-              <p className="m-0 mt-1 text-sm text-white/45">
+              <p className="m-0 mt-1 text-xs text-white/45 sm:text-sm break-words">
                 우리의 시간과 추억을 한눈에 관리해요
               </p>
             </div>
 
-            <div className="flex items-center gap-3 text-white/80">
-              <BellOutlined className="text-lg" />
-              <UserOutlined className="text-lg" />
+            <div className="flex shrink-0 items-center gap-3 self-end sm:self-auto text-white/80">
+              <BellOutlined className="text-base sm:text-lg" />
+              <UserOutlined className="text-base sm:text-lg" />
             </div>
           </div>
         </Header>
 
-        <Content className="dashboard-content p-6">{children}</Content>
+        <Content
+          className="dashboard-content p-3 sm:p-4 md:p-6"
+          style={{
+            overflow: "auto",
+          }}
+        >
+          {children}
+        </Content>
       </Layout>
     </Layout>
   );
