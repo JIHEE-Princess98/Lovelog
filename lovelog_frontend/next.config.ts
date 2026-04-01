@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
   devIndicators: false,
   output: "export",
-  basePath: "/lovelog-frontend",
-  assetPrefix: "/lovelog_frontend/",
-  /* config options here */
+  trailingSlash: true,
+  basePath: isProd ? "/Lovelog" : "",
+  assetPrefix: isProd ? "/Lovelog/" : "",
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
