@@ -29,8 +29,8 @@ const menuItems = [
     label: "알림내역",
   },
   { key: "/me", icon: <UserOutlined />, label: "내정보" },
-  { key: "/users", icon: <TeamOutlined />, label: "사용자관리" },
-  { key: "/codes", icon: <CodeOutlined />, label: "코드관리" },
+  // { key: "/users", icon: <TeamOutlined />, label: "사용자관리" },
+  // { key: "/codes", icon: <CodeOutlined />, label: "코드관리" },
 ];
 
 export default function DashboardLayout({
@@ -168,7 +168,7 @@ export default function DashboardLayout({
           <div className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
               <h1 className="m-0 text-lg font-bold text-white sm:text-xl md:text-2xl break-words">
-                LoveLog Dashboard
+                LoveLog
               </h1>
               <p className="m-0 mt-1 text-xs text-white/45 sm:text-sm break-words">
                 우리의 시간과 추억을 한눈에 관리해요
