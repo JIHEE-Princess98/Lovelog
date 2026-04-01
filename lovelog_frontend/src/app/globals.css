@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   background: #0f0714;
-  color: white;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 body {
@@ -18,7 +18,7 @@ body {
       #24101f 70%,
       #2c1222 100%
     );
-  color: white;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 * {
@@ -436,4 +436,46 @@ select,
 
 .dashboard-card .ant-statistic-content svg {
   color: #ff8fc2 !important;
+}
+
+/* Ant Typography 전체 강제 */
+.ant-typography,
+.ant-typography strong,
+.ant-typography span,
+.ant-typography div {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* Card 내부 텍스트 */
+.ant-card {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Statistic */
+.ant-statistic-title {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.ant-statistic-content {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* 리스트 */
+.ant-list-item-meta-title {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.ant-list-item-meta-description {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 버튼 */
+.ant-btn {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* input 같은거 대비 */
+.ant-input,
+.ant-input-affix-wrapper {
+  color: rgba(255, 255, 255, 0.92);
 }
